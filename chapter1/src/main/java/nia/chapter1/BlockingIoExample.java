@@ -44,4 +44,8 @@ public class BlockingIoExample {
     private String processRequest(String request){
         return "Processed";
     }
+    
+    public static void main(String[] args) throws Exception {
+		new BlockingIoExample().serve(9090);
+	}
 }
