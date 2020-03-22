@@ -32,6 +32,13 @@ public class EchoClient {
 					};
 				});
 			ChannelFuture future = b.connect().sync();
+			
+			future.addListener(f -> {
+				if(f.isSuccess()) {
+					System.out.println("future compeleted: " + future);
+				}
+			});
+			
 			future.channel().closeFuture().sync();
 		} finally {
 			group.shutdownGracefully().sync();
